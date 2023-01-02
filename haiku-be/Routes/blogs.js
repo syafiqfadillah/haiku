@@ -1,4 +1,4 @@
-const { postBlog, getBlogs, getBlogId } = require("../Controllers/blogs.js")
+const { postBlog, getBlogs, getBlogId } = require("../controllers/blogs.js")
 const express = require("express")
 
 const router = express.Router()

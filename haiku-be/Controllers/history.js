@@ -1,4 +1,4 @@
-const { History } = require("../Models/index")
+const { History } = require("../models/index")
 
 const postHistory = async (req, res) => {
     try {
