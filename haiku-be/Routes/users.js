@@ -1,5 +1,5 @@
-const { getUserById, postUser, getUsers, login, logout } = require("../Controllers/users.js")
-const verifyToken = require("../Middleware/verify-token.js")
+const { getUserById, putUser, postUser, getUsers, login, logout } = require("../controllers/users.js")
+const verifyToken = require("../middleware/verify-token.js")
 const multer = require("multer")
 const express = require("express")
 
@@ -17,7 +17,7 @@ let storage = multer.diskStorage({
 let upload = multer({ storage: storage })
 
 router.use(upload.single("photo"))
-router.get("/get-user/:id", verifyToken, getUserById)
+router.get("/get-user/:id", verifyToken, getUserById) 
 router.post("/post-user", postUser)
 router.get("/get-users", getUsers)
 router.post("/login", login)

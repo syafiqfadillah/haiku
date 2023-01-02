@@ -1,4 +1,4 @@
-const { postHistory,  getHistoryId } = require("../Controllers/History.js")
+const { postHistory,  getHistoryId } = require("../controllers/History.js")
 const express = require("express")
 
 const router = express.Router()

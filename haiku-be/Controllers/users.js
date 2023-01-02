@@ -9,7 +9,14 @@ const getUserById = async (req, res) => {
             where: {
                 id: req.params.id
             },
-            include: [Blogs, UserFavorite, History]
+            include: [Blogs, {
+                model: UserFavorite, 
+                include: Blogs
+            }, 
+            {
+                model: History, 
+                include: Blogs
+            }]
         })
         .then(result => res.status(200).json({
             message: "User Berhasil Diambil!",
@@ -81,7 +88,7 @@ const login = async (req, res) => {
         const name = user[0].name
         const email = user[0].email
         const accessToken = jwt.sign({userId, name, email}, process.env.ACCESS_TOKEN_SECRET, {
-            expiresIn: "20s"
+            expiresIn: "1d"
         })
         const refreshToken = jwt.sign({userId, name, email}, process.env.REFRESH_TOKEN_SECRET, {
             expiresIn: "1d"

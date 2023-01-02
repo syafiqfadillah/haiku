@@ -1,4 +1,4 @@
-const { postUserFavorite, getUserFavorites, getUserFavoritesId } = require("../Controllers/user-favorite.js")
+const { postUserFavorite, getUserFavorites, getUserFavoritesId } = require("../controllers/user-favorite.js")
 const express = require("express")
 
 const router = express.Router()

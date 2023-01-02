@@ -1,4 +1,4 @@
-const { Blogs } = require("../Models/index")
+const { Blogs, Users } = require("../models/index")
 
 const getBlogs = async (req, res) => {
     try {
@@ -23,11 +23,12 @@ const postBlog = async (req, res) => {
 
 const getBlogId = async (req, res) => {
     try {
-        const user = await Blogs.findAll(
+        await Blogs.findAll(
             {
                 where: {
-                    userId: req.params.id
-                }
+                    id: req.params.id
+                },
+                include: Users
             }
         ).then(result => res.status(200).json({
             message: "Blog Per Id Berhasil Diambil!",
