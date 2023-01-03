@@ -14,6 +14,7 @@ const Login = React.lazy(() => import('./Login'))
 const Profile = React.lazy(() => import('./Profile'))
 const ProfileEdit = React.lazy(() => import('./ProfileEdit'))
 const Register = React.lazy(() => import('./Register'))
+// const Loading = React.lazy(() => import('../Components/Loading'))
 
 const App = () => {
     return (
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path='/profile' element={<Suspense fallback={<Loading/>}><Profile /></Suspense>}/>
                 <Route path='/profileedit' element={<Suspense fallback={<Loading/>}><ProfileEdit /></Suspense>}/>
                 <Route path='/register' element={<Suspense fallback={<Loading/>}><Register /></Suspense>}/>
+                <Route path='/loading' element={<Suspense fallback={<Loading/>}><Loading /></Suspense>}/>
             </Routes>
         </BrowserRouter>
     )

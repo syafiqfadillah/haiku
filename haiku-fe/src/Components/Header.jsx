@@ -1,33 +1,28 @@
-import Container from 'react-bootstrap/Container';
+import { NavLink, Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Stack from 'react-bootstrap/Stack'
+
+import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
     return (
         <>
             <Navbar className='nav' expand="lg">
-                <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <div className='cH'>
+                    <Navbar.Brand className='hLogo'><Link to="/"><img src={IMG} alt='Logo'/></Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">
-                            Another action
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">
-                            Separated link
-                        </NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
+                        <Nav className="me-auto">
+                            <Stack direction='horizontal' gap={5} className='navWidth mx-auto col-sm-4'>
+                                <NavLink activeclassname='active' className='NL' to="/"><span className='toBtn'>Home</span><span className="toLine"></span></NavLink>
+                                <NavLink activeclassname='active' className='NL' to="/explore"><span className='toBtn'>Explore</span><span className="toLine"></span></NavLink>
+                                <NavLink activeclassname='active' className='NL' to="/profile"><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
+                            </Stack>
+                        </Nav>
+                        <Nav.Link className='GS' href="/login">Get Started</Nav.Link>
                     </Navbar.Collapse>
-                </Container>
+                </div>
             </Navbar>
         </>
     )

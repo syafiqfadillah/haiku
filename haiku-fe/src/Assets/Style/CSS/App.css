@@ -1,38 +1,992 @@
-.App {
-  text-align: center;
+:root {
+  --white: #f0eff4;
+  --pink: #da4167;
+  --darkpink: #832161;
+  --darkpurple: #3d2645;
+  --black: #000000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loadingContainer {
+  background: var(--darkpurple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.loading {
+  position: relative;
+  transform: rotate(-60deg);
+}
+.loading span {
+  position: absolute;
+  border: solid 10px transparent;
+  border-top-width: 6px;
+  border-bottom-width: 6px;
+  display: block;
+  transform: translate(-50%, -50%);
+}
+.loading .outer span {
+  width: 100px;
+  height: 50px;
+  -webkit-animation: destiny2-loading 1500ms infinite;
+          animation: destiny2-loading 1500ms infinite;
+}
+.loading .outer span:nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.loading .outer span:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(60deg);
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+.loading .outer span:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(120deg);
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+.loading .inner span {
+  width: 50px;
+  height: 25px;
+  -webkit-animation: destiny2-loading 1500ms infinite;
+          animation: destiny2-loading 1500ms infinite;
+}
+.loading .inner span:nth-child(1) {
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+.loading .inner span:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(60deg);
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+.loading .inner span:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(120deg);
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+@-webkit-keyframes destiny2-loading {
+  0% {
+    border-left-color: transparent;
+    border-right-color: var(--white);
+    filter: drop-shadow(0 0 5px var(--pink));
+  }
+  30% {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  50% {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  50.00001% {
+    border-left-color: var(--white);
+    filter: drop-shadow(0 0 5px var(--pink));
+    border-right-color: transparent;
+  }
+  80% {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  100% {
+    border-left-color: transparent;
+    border-right-color: transparent;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes destiny2-loading {
+  0% {
+    border-left-color: transparent;
+    border-right-color: var(--white);
+    filter: drop-shadow(0 0 5px var(--pink));
+  }
+  30% {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  50% {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  50.00001% {
+    border-left-color: var(--white);
+    filter: drop-shadow(0 0 5px var(--pink));
+    border-right-color: transparent;
+  }
+  80% {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  100% {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+.nav {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.nav .cH {
+  background: transparent;
+  height: 100px;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 100px;
+}
+.nav .cH .hLogo {
+  width: 127px;
+  display: flex;
+  justify-content: center;
+}
+.nav .cH .hLogo img {
+  width: 100%;
+}
+.nav .cH .me-auto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .cH .me-auto .navWidth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.nav .cH .me-auto .navWidth .active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .cH .me-auto .navWidth .active .toBtn {
+  color: var(--white);
+  filter: drop-shadow(0px 0px 4px #DA4167);
+}
+.nav .cH .me-auto .navWidth .active .toLine {
+  width: 20%;
+  height: 3px;
+  border-radius: 10px;
+  background-color: var(--white);
+  filter: drop-shadow(0px 0px 5px #DA4167);
+}
+.nav .cH .me-auto .navWidth .NL {
+  color: var(--pink);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s;
+}
+.nav .cH .me-auto .navWidth .NL:hover {
+  color: var(--white);
+  filter: drop-shadow(0px 0px 5px #DA4167);
+}
+.nav .cH .GS {
+  width: 159px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--pink);
+  border-radius: 10px;
+}
+
+.loginContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: radial-gradient(161.95% 103.96% at 196.82% 137.86%, #832161 0%, #3D2645 100%);
+}
+.loginContainer .leftLogin {
+  width: 416px;
+  height: 500px;
+  padding: 50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: var(--darkpink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.loginContainer .leftLogin .leftLogo {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 40%;
+  filter: drop-shadow(0px 0px 10px #FFFFFF);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.loginContainer .leftLogin .leftLogo img {
+  align-self: baseline;
+  width: 120px;
+}
+.loginContainer .leftLogin .text {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.loginContainer .leftLogin .text h1, .loginContainer .leftLogin .text h6 {
+  font-family: "Source Sans Pro";
+  margin: 0;
+  font-weight: bold;
+  color: var(--white);
+}
+.loginContainer .leftLogin .text h1 {
+  font-size: 4rem;
+}
+.loginContainer .leftLogin .text h6 {
+  font-size: 1.3rem;
+}
+.loginContainer .leftLogin .bgTop {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--darkpink);
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.loginContainer .leftLogin .bgSlide {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 99999px;
+  -webkit-animation: slide 300s linear infinite;
+          animation: slide 300s linear infinite;
+  background: url(../../Image/WorldMap.png) repeat-x;
+  background-position: center;
+}
+@-webkit-keyframes slide {
+  0% {
+    transform: translate3d(0px, 0, 0);
+  }
+  100% {
+    transform: translate3d(1440px, 0, 0);
+  }
+  0% {
+    transform: translate3d(-1440px, 0, 0);
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translate3d(0px, 0, 0);
+  }
+  100% {
+    transform: translate3d(1440px, 0, 0);
+  }
+  0% {
+    transform: translate3d(-1440px, 0, 0);
+  }
+}
+.loginContainer .rightLogin {
+  position: relative;
+  width: 416px;
+  height: 500px;
+  padding: 30px 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: radial-gradient(120.19% 100% at 100% 100%, #DA4167 0%, #832161 67.71%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginContainer .rightLogin h1 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 30px;
+  font-weight: 300;
+  color: var(--white);
+}
+.loginContainer .rightLogin .loginForm {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+}
+.loginContainer .rightLogin .loginForm .label {
+  margin: 0;
+}
+.loginContainer .rightLogin .loginForm .emailLG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--white);
+}
+.loginContainer .rightLogin .loginForm .emailLG label {
+  font-weight: bold;
+  color: var(--white);
+}
+.loginContainer .rightLogin .loginForm .emailLG .inpEmail {
+  width: 90%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+}
+.loginContainer .rightLogin .loginForm .passLG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-bottom: 2px solid var(--white);
+}
+.loginContainer .rightLogin .loginForm .passLG label {
+  font-weight: bold;
+  color: var(--white);
+}
+.loginContainer .rightLogin .loginForm .passLG .formPW {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginContainer .rightLogin .loginForm .passLG .formPW .inpPass {
+  width: 90%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+}
+.loginContainer .rightLogin .loginForm .passLG .formPW .eyePW {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+}
+.loginContainer .rightLogin .loginForm .passLG .formPW .eyePW input {
+  display: none;
+}
+.loginContainer .rightLogin .loginForm .passLG .formPW .eyePW input ~ .checked {
+  display: none;
+}
+.loginContainer .rightLogin .loginForm .passLG .formPW .eyePW input:checked ~ .checked {
+  display: inline-block;
+  -webkit-animation: eyes 0.2s;
+          animation: eyes 0.2s;
+}
+.loginContainer .rightLogin .loginForm .passLG .formPW .eyePW input:checked ~ .unchecked {
+  display: none;
+}
+@-webkit-keyframes eyes {
+  0% {
+    transform: scaleY(0%);
+  }
+  100% {
+    transform: scaleY(100%);
+  }
+}
+@keyframes eyes {
+  0% {
+    transform: scaleY(0%);
+  }
+  100% {
+    transform: scaleY(100%);
+  }
+}
+.loginContainer .rightLogin .loginForm .btnLG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.loginContainer .rightLogin .loginForm .btnLG button {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background-color: #55254F;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.loginContainer .rightLogin .loginForm .btnLG .bottomBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.loginContainer .rightLogin .loginForm .btnLG .bottomBtn p {
+  font-size: 0.7rem;
+  color: var(--white);
+}
+.loginContainer .rightLogin .loginForm .btnLG .bottomBtn p .suBtn {
+  text-decoration: none;
+  color: var(--darkpurple);
+  filter: drop-shadow(0 0 2px var(--white));
 }
 
-.App-link {
-  color: #61dafb;
+.registerContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: radial-gradient(161.95% 103.96% at 196.82% 137.86%, #832161 0%, #3D2645 100%);
+}
+.registerContainer .leftRegister {
+  width: 416px;
+  height: 500px;
+  padding: 50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: var(--darkpink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.registerContainer .leftRegister .leftLogo {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 40%;
+  filter: drop-shadow(0px 0px 10px #FFFFFF);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.registerContainer .leftRegister .leftLogo img {
+  align-self: baseline;
+  width: 120px;
+}
+.registerContainer .leftRegister .text {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.registerContainer .leftRegister .text h1, .registerContainer .leftRegister .text h6 {
+  font-family: "Source Sans Pro";
+  margin: 0;
+  font-weight: bold;
+  color: var(--white);
+}
+.registerContainer .leftRegister .text h1 {
+  font-size: 4rem;
+}
+.registerContainer .leftRegister .text h6 {
+  font-size: 1.3rem;
+}
+.registerContainer .leftRegister .bgTop {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--darkpink);
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.registerContainer .leftRegister .bgSlide {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 99999px;
+  -webkit-animation: slide 300s linear infinite;
+          animation: slide 300s linear infinite;
+  background: url(../../Image/WorldMap.png) repeat-x;
+  background-position: center;
+}
+@keyframes slide {
+  0% {
+    transform: translate3d(0px, 0, 0);
+  }
+  100% {
+    transform: translate3d(1440px, 0, 0);
+  }
+  0% {
+    transform: translate3d(-1440px, 0, 0);
+  }
+}
+.registerContainer .rightRegister {
+  position: relative;
+  width: 416px;
+  height: 500px;
+  padding: 30px 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: radial-gradient(120.19% 100% at 100% 100%, #DA4167 0%, #832161 67.71%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.registerContainer .rightRegister h1 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 30px;
+  font-weight: 300;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.registerContainer .rightRegister .registerForm .label {
+  margin: 0;
+}
+.registerContainer .rightRegister .registerForm .nameRG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--white);
+}
+.registerContainer .rightRegister .registerForm .nameRG label {
+  font-weight: bold;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .nameRG .inpName {
+  width: 90%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .userRG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--white);
+}
+.registerContainer .rightRegister .registerForm .userRG label {
+  font-weight: bold;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .userRG .inpUsername {
+  width: 90%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .emailRG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--white);
+}
+.registerContainer .rightRegister .registerForm .emailRG label {
+  font-weight: bold;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .emailRG .inpEmail {
+  width: 90%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .passRG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-bottom: 2px solid var(--white);
+}
+.registerContainer .rightRegister .registerForm .passRG label {
+  font-weight: bold;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .passRG .formPW {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.registerContainer .rightRegister .registerForm .passRG .formPW .inpPass {
+  width: 90%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .passRG .formPW .eyePW {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .passRG .formPW .eyePW input {
+  display: none;
+}
+.registerContainer .rightRegister .registerForm .passRG .formPW .eyePW input ~ .checked {
+  display: none;
+}
+.registerContainer .rightRegister .registerForm .passRG .formPW .eyePW input:checked ~ .checked {
+  display: inline-block;
+  -webkit-animation: eyes 0.2s;
+          animation: eyes 0.2s;
+}
+.registerContainer .rightRegister .registerForm .passRG .formPW .eyePW input:checked ~ .unchecked {
+  display: none;
+}
+@keyframes eyes {
+  0% {
+    transform: scaleY(0%);
+  }
+  100% {
+    transform: scaleY(100%);
+  }
+}
+.registerContainer .rightRegister .registerForm .imgRG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.registerContainer .rightRegister .registerForm .imgRG label {
+  font-weight: bold;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .btnRG {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.registerContainer .rightRegister .registerForm .btnRG button {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background-color: #55254F;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.registerContainer .rightRegister .registerForm .btnRG .bottomBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.registerContainer .rightRegister .registerForm .btnRG .bottomBtn p {
+  font-size: 0.7rem;
+  color: var(--white);
+}
+.registerContainer .rightRegister .registerForm .btnRG .bottomBtn p .suBtn {
+  text-decoration: none;
+  color: var(--darkpurple);
+  filter: drop-shadow(0 0 2px var(--white));
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.exploreContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
+.exploreContainer .eSearchSec {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(90.22deg, #DA4167 0%, #832161 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exploreContainer .eSearchSec .eSearch {
+  width: 70%;
+  height: 60px;
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.exploreContainer .eSearchSec .eSearch .inSearch {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 60px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  outline: none;
+}
+.exploreContainer .eSearchSec .eSearch .btnSearch {
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.4);
+}
+.exploreContainer .ecContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.exploreContainer .ecContainer .ecCard {
+  width: 197px;
+  height: 197px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  box-shadow: 4px 4px 0px 3px #DA4167;
+  border-radius: 10px;
+  color: var(--pink);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.exploreContainer .ecContainer .ecCard p {
+  display: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+  transition: all 0.2s;
+}
+.exploreContainer .ecContainer .ecCard:hover {
+  background-color: var(--pink);
+  box-shadow: 4px 4px 0px 3px var(--white);
+}
+.exploreContainer .ecContainer .ecCard:hover i {
+  display: none;
+  transition: all 0.2s;
+}
+.exploreContainer .ecContainer .ecCard:hover p {
+  display: block;
+  color: var(--white);
+}
+.exploreContainer .exList {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.exploreContainer .exList .caContainer {
+  padding: 10px;
+  border: 1px solid var(--pink);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+.exploreContainer .exList .caContainer .articleTitle {
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+.exploreContainer .exList .caContainer .articleMore {
+  text-decoration: none;
+  font-weight: bold;
+  align-self: flex-end;
+  color: var(--pink);
+  font-size: 1.5rem;
+}
+
+.navF {
+  width: 100%;
+  height: 600px;
+  margin: 0;
+  padding: 70px 100px;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(100% 100% at 0% 0%, #DA4167 0%, #832161 61.98%);
+}
+.navF .cF {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.navF .cF .fLeft {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+}
+.navF .cF .fLeft .fLogo {
+  width: 100%;
+}
+.navF .cF .fLeft .fLogo img {
+  width: 100%;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+}
+.navF .cF .fLeft .fAbout {
+  width: 100%;
+  font-size: 1.2rem;
+  color: var(--white);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.navF .cF .fLeft .fAbout h3 {
+  font-weight: bold;
+  margin: 0;
+}
+.navF .cF .fLeft .fSosmed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 2.5rem;
+  color: var(--white);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.navF .cF .fMid {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  color: var(--white);
+}
+.navF .cF .fMid .fPhone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.navF .cF .fMid .fPhone i {
+  font-size: 6rem;
+}
+.navF .cF .fMid .fPhone p {
+  margin: 0;
+  font-size: 1rem;
+}
+.navF .cF .fMid .fMaps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.navF .cF .fMid .fMaps i {
+  font-size: 6rem;
+}
+.navF .cF .fMid .fMaps p {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+.navF .cF .fRight {
+  width: 40%;
+}
+.navF .cF .fRight .fEmailJs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  align-items: flex-end;
+}
+.navF .cF .fRight .fEmailJs h1 {
+  font-weight: bold;
+  color: var(--white);
+  font-size: 2.2rem;
+  margin: 0;
+  width: 100%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.navF .cF .fRight .fEmailJs input {
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.navF .cF .fRight .fEmailJs input::-moz-placeholder {
+  font-weight: bold;
+}
+.navF .cF .fRight .fEmailJs input:-ms-input-placeholder {
+  font-weight: bold;
+}
+.navF .cF .fRight .fEmailJs input::placeholder {
+  font-weight: bold;
+}
+.navF .cF .fRight .fEmailJs .tarea {
+  height: 223px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.navF .cF .fRight .fEmailJs .tarea::-moz-placeholder {
+  font-weight: bold;
+}
+.navF .cF .fRight .fEmailJs .tarea:-ms-input-placeholder {
+  font-weight: bold;
+}
+.navF .cF .fRight .fEmailJs .tarea::placeholder {
+  font-weight: bold;
+}
+.navF .cF .fRight .fEmailJs .btnEmail {
+  height: 50px;
+  width: 198px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  color: var(--white);
+  font-size: 1.3rem;
+  background-color: var(--pink);
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: none;
+}/*# sourceMappingURL=App.css.map */

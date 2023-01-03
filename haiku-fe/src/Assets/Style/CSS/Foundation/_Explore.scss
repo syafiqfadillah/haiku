@@ -1,0 +1,123 @@
+.exploreContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .eSearchSec {
+        width: 100%;
+        height: 120px;
+        background: linear-gradient(90.22deg, #DA4167 0%, #832161 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .eSearch {
+            width: 70%;
+            height: 60px;
+            background-color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+
+            .inSearch {
+                background: transparent;
+                border: none;
+                width: 100%;
+                height: 60px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                outline: none;
+            }
+
+            .btnSearch {
+                height: 60px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                border: none;
+                background: transparent;
+                color: rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+
+    // EXPLORE CARD STYLE
+    .ecContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    
+        .ecCard {
+            width: 197px;
+            height: 197px;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            box-shadow: 4px 4px 0px 3px #DA4167;
+            border-radius: 10px;
+            color: var(--pink);
+            cursor: pointer;
+            transition: all .2s;
+    
+            p {
+                display: none;
+                font-size: 1.1rem;
+                font-weight: bold;
+                margin: 0;
+                transition: all .2s;
+            }
+    
+            &:hover {
+                background-color: var(--pink);
+                box-shadow: 4px 4px 0px 3px var(--white);
+    
+                i {
+                    display: none;
+                    transition: all .2s;
+                }
+    
+                p {
+                    display: block;
+                    color: var(--white);
+                }
+            }
+        }
+    }
+
+    // EXPLORE LIST STYLE
+    .exList {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        .caContainer {
+            padding: 10px;
+            border: 1px solid var(--pink);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+
+            .articleTitle {
+                font-weight: bold;
+                font-size: 1.7rem;
+            }
+
+            .articleMore {
+                text-decoration: none;
+                font-weight: bold;
+                align-self: flex-end;
+                color: var(--pink);
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
