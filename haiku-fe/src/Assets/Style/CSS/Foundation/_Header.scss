@@ -7,13 +7,12 @@
 
     .cH {
         background: transparent;
-        height: 100px;
         padding: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin: 0 100px;
+        margin: 30px 50px;
 
         .hLogo {
             width: 127px;
@@ -27,16 +26,11 @@
 
         .me-auto {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
             .navWidth {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 font-weight: 600;
                 font-size: 1.2rem;
+                gap: 50px;
 
                 .active {
                     display: flex;
@@ -86,6 +80,7 @@
             font-weight: 600;
             background-color: var(--pink);
             border-radius: 10px;
+            border: none;
         }
     }
 }

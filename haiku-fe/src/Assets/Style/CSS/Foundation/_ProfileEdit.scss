@@ -1,0 +1,150 @@
+.peContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    .peHeadBG {
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(90.22deg, #DA4167 0%, #832161 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bolder;
+            color: var(--white);
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+    }
+
+    .peForm {
+        width: 50%;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .feProfile {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+
+            .label {
+                margin: 0;
+                color: var(--white);
+                font-weight: bold;
+            }
+
+            .nameEP {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-bottom: 2px solid var(--white);
+
+                label {
+                    font-weight: bold;
+                    color: var(--white);
+                }
+
+                .inpName {
+                    width: 90%;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: var(--white);
+                }
+            }
+
+            .passEP {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                border-bottom: 2px solid var(--white);
+
+                label {
+                    font-weight: bold;
+                    color: var(--white);
+                }
+
+                .pwProf {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .inpPass {
+                        width: 95%;
+                        background: transparent;
+                        border: none;
+                        outline: none;
+                        color: var(--white);
+                    }
+
+                    .eyePW {
+                        width: 5%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: var(--white);
+
+                        input {
+                            display: none;
+                        }
+    
+                        input ~ .checked {
+                            display: none;
+                        }
+    
+                        input:checked ~ .checked {
+                            display: inline-block;
+                            animation: eyes .2s;
+                        }
+    
+                        input:checked ~ .unchecked {
+                            display: none;
+                        }
+
+                        @keyframes eyes {
+                            0% {
+                                // opacity: 0;
+                                transform: scaleY(0%);
+                            }
+                            100% {
+                                // opacity: 1;
+                                transform: scaleY(100%);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .imageEP {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                font-size: 1.2rem;
+                background-color: #55254F;
+                color: var(--white);
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
