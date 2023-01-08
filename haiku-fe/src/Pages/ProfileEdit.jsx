@@ -21,7 +21,7 @@ const ProfileEdit = () => {
         <>
             <Header/>
             <AnimatedPage>
-            <div className="container-fluid peContainer">
+            <div className="peContainer">
                 <div className="peHeadBG">
                     <h1>EDIT YOUR PROFILE</h1>
                 </div>

@@ -1,0 +1,95 @@
+.aeHead {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(90.22deg, #DA4167 0%, #832161 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        margin: 0;
+        color: var(--white);
+    }
+}
+
+.aeContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    .aeFormCont {
+        width: 50%;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .aeForm {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+
+            .titleAE {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-bottom: 2px solid var(--white);
+
+                label {
+                    font-weight: bold;
+                    color: var(--white);
+                }
+
+                .inpTitle {
+                    width: 90%;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: var(--white);
+                }
+            }
+
+            .contentAE {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-bottom: 2px solid var(--white);
+
+                label {
+                    font-weight: bold;
+                    color: var(--white);
+                }
+
+                .inpContent {
+                    width: 100%;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: var(--white);
+                    height: 100%;
+                }
+            }
+
+            button {
+                width: 100%;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                font-size: 1.2rem;
+                background-color: #55254F;
+                color: var(--white);
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
