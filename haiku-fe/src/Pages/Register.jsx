@@ -1,14 +1,17 @@
-import AnimatedLogin from './AnimatedLogin'
-import { Link } from 'react-router-dom'
+import AnimatedLogin from './AnimatedLogin';
+import axios from "axios";
+import swal from "sweetalert"
+import { Link, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-import HLogo from '../Assets/Image/H-Logo2.png'
-import SULogo from '../Assets/Image/SU.png'
+import HLogo from '../Assets/Image/H-Logo2.png';
+import SULogo from '../Assets/Image/SU.png';
 
 const Register = () => {
+    // const nav = useNavigate()
 
     const showPw = () => {
         const pw = document.querySelector("#pwd");
@@ -18,6 +21,25 @@ const Register = () => {
             pw.type = "password";
         }
     };
+
+    const submit = (e) => {
+        e.preventDefault()
+
+        if (e.target[0].value && e.target[1].value && e.target[2].value && e.target[3].value && e.target[5].files[0]) {
+            const form = new FormData()
+            form.append("name", e.target[0].value)
+            form.append("username", e.target[1].value)
+            form.append("email", e.target[2].value)
+            form.append("password", e.target[3].value)
+            form.append("photo", e.target[5].files[0])
+
+            axios.post("http://localhost:3333/post-user", form)
+            .then(() => swal("Success!", "Account Was Successfully Created!" ,"success"))
+            .catch(() => swal("Error!", "Something Wrong!", "error"))
+        } else {
+            swal("Error!", "Don't Leave it Blank!", "error")
+        }
+    }
 
     return (
         <>
@@ -36,7 +58,7 @@ const Register = () => {
                         <div className="bgSlide"></div>
                     </div>
                     <div className="rightRegister">
-                        <Form className="registerForm">
+                        <Form className="registerForm" onSubmit={(e) => submit(e)}>
                             <Form.Group className="nameRG">
                                 <Form.Label className='label'>Name</Form.Label>
                                 <Form.Control className='inpName' type='text' size="sm" />
