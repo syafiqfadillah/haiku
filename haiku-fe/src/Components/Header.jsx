@@ -1,29 +1,37 @@
 import { NavLink, Link } from 'react-router-dom';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Stack from 'react-bootstrap/Stack'
 
 import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
     return (
         <>
-            <Navbar className='nav' expand="lg">
-                <div className='cH'>
-                    <Navbar.Brand className='hLogo'><Link to="/"><img src={IMG} alt='Logo'/></Link></Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Stack direction='horizontal' gap={5} className='navWidth mx-auto col-sm-4'>
-                                <NavLink activeclassname='active' className='NL' to="/"><span className='toBtn'>Home</span><span className="toLine"></span></NavLink>
-                                <NavLink activeclassname='active' className='NL' to="/explore"><span className='toBtn'>Explore</span><span className="toLine"></span></NavLink>
-                                <NavLink activeclassname='active' className='NL' to="/profile"><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
-                            </Stack>
-                        </Nav>
-                        <Nav.Link className='GS' href="/login">Get Started</Nav.Link>
-                    </Navbar.Collapse>
+            <nav class="navbar navbar-expand-lg px-5 nav" aria-label="Thirteenth navbar example">
+                <div class="container-fluid cH">
+                    <div class="navbar-brand hLogo"><Link to="/"><img src={IMG} alt='Logo'/></Link></div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse d-lg-flex me-auto" id="navbarsExample11">
+                        <ul class="navbar-nav col-sm justify-content-lg-center navWidth">
+                            <li class="nav-item">
+                                {/* <a class="nav-link active" aria-current="page" href="#">Home</a> */}
+                                <NavLink activeclassname='active' className='NL nav-link' to="/"><span className='toBtn'>Home</span><span className="toLine"></span></NavLink>
+                            </li>
+                            <li class="nav-item">
+                                {/* <a class="nav-link" href="#">Link</a> */}
+                                <NavLink activeclassname='active' className='NL nav-link' to="/explore"><span className='toBtn'>Explore</span><span className="toLine"></span></NavLink>
+                            </li>
+                            <li class="nav-item">
+                                {/* <a class="nav-link disabled">Disabled</a> */}
+                                <NavLink activeclassname='active' className='NL nav-link' to="/profile"><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
+                            </li>
+                        </ul>
+                        <div class="d-lg-flex justify-content-lg-end">
+                            <Link class="btn btn-primary GS" to="/login">Get Started</Link>
+                        </div>
+                    </div>
                 </div>
-            </Navbar>
+            </nav>
         </>
     )
 }

@@ -6,7 +6,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 import HLogo from '../Assets/Image/H-Logo2.png'
-import SILogo from '../Assets/Image/SU.png'
+import SILogo from '../Assets/Image/SI.png'
 
 const Login = () => {
 
