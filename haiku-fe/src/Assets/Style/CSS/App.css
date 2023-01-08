@@ -124,6 +124,28 @@
     border-right-color: transparent;
   }
 }
+.maContainer, .hisContainer, .caContainer {
+  border: 1px solid var(--pink);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+.maContainer .articleTitle, .hisContainer .articleTitle, .caContainer .articleTitle {
+  font-size: 2rem;
+}
+.maContainer .articleMore, .hisContainer .articleMore, .caContainer .articleMore {
+  align-self: flex-end;
+  color: var(--pink);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+.maContainer .articleMore:hover, .hisContainer .articleMore:hover, .caContainer .articleMore:hover {
+  filter: drop-shadow(0 0 5px var(--darkpink));
+}
+
 .nav {
   width: 100%;
   margin: 0;
@@ -200,32 +222,38 @@
   border: none;
 }
 
-.ttBtn {
-  z-index: 10;
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 50px;
-  right: 50px;
-  float: right;
-  margin: 20px;
+.container-fluid {
+  margin: 50px;
+}
+.container-fluid .homeL {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container-fluid .homeR {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  gap: 10px;
+}
+.container-fluid .homeR .lineHome {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--white), rgba(0, 0, 0, 0));
+}
+.container-fluid .homeR .btnDs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.container-fluid .homeR .btnDs button {
+  padding: 5px 10px;
+  border: 2px solid var(--pink);
   background: transparent;
-  width: 50px;
-  height: 50px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: 0.2s;
-  border: none;
+  color: var(--white);
 }
-.ttBtn i {
-  display: flex;
-  font-size: 3rem;
-  color: var(--pink);
-}
-.ttBtn:hover {
-  filter: drop-shadow(0 0 5px var(--white));
+.container-fluid .homeR .btnDs button:hover {
+  background-color: var(--pink);
 }
 
 .loginContainer {
@@ -852,9 +880,55 @@
   font-size: 1.5rem;
 }
 
+.arContainer h5 {
+  text-align: justify;
+}
 .arContainer .arProfSec {
+  gap: 20px;
   height: 100px;
   display: flex;
+  align-items: center;
+}
+.arContainer .arProfSec img {
+  height: 100%;
+}
+.arContainer .arProfSec .contArProf {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.arContainer .arProfSec .contArProf .arNameProf {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+.arContainer .arProfSec .contArProf .arNameProf h4, .arContainer .arProfSec .contArProf .arNameProf p {
+  margin: 0;
+}
+.arContainer .arProfSec .contArProf .arProfMedsos {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 2rem;
+}
+.arContainer .arProfSec .contArProf .arBtnProf {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+.arContainer .arProfSec .contArProf .arBtnProf .arBtn {
+  width: 50%;
+  gap: 10px;
+  border: none;
+  background-color: var(--pink);
+  color: var(--white);
+  font-weight: bold;
+  border-radius: 5px;
 }
 .arContainer .arPoster {
   width: 100%;
@@ -1049,26 +1123,6 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-}
-.profContainer .profContent .profArticle .profHistoryList .pchContainer .hisContainer {
-  border: 1px solid var(--pink);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-.profContainer .profContent .profArticle .profHistoryList .pchContainer .hisContainer .articleTitle {
-  font-size: 2rem;
-}
-.profContainer .profContent .profArticle .profHistoryList .pchContainer .hisContainer .articleMore {
-  align-self: flex-end;
-  color: var(--pink);
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  transition: all 0.2s;
-}
-.profContainer .profContent .profArticle .profHistoryList .pchContainer .hisContainer .articleMore:hover {
-  filter: drop-shadow(0 0 5px var(--darkpink));
 }
 
 .peContainer {
@@ -1361,4 +1415,32 @@ input[type=number]:focus,
 [type=tel].form-control:focus,
 [contenteditable].form-control:focus {
   box-shadow: none;
+}
+
+.ttBtn {
+  z-index: 10;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 50px;
+  right: 50px;
+  float: right;
+  margin: 20px;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+}
+.ttBtn i {
+  display: flex;
+  font-size: 3rem;
+  color: var(--pink);
+}
+.ttBtn:hover {
+  filter: drop-shadow(0 0 5px var(--white));
 }/*# sourceMappingURL=App.css.map */

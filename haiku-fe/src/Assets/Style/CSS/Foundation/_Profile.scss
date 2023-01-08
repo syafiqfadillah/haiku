@@ -200,30 +200,6 @@
                     align-items: center;
                     justify-content: center;
                     gap: 10px;
-
-                    .hisContainer {
-                        border: 1px solid var(--pink);
-                        padding: 20px;
-                        display: flex;
-                        flex-direction: column;
-
-                        .articleTitle {
-                            font-size: 2rem;
-                        }
-
-                        .articleMore {
-                            align-self: flex-end;
-                            color: var(--pink);
-                            text-decoration: none;
-                            font-size: 1.5rem;
-                            font-weight: bold;
-                            transition: all .2s;
-
-                            &:hover {
-                                filter: drop-shadow(0 0 5px var(--darkpink));
-                            }
-                        }
-                    }
                 }
             }
         }
