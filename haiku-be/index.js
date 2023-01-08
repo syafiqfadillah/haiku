@@ -14,7 +14,7 @@ dotenv.config()
 const app = express()
 const PORT = 3333
 
-app.use(cors())
+app.use(cors({origin : true, credentials : true}))
 app.use(cookieParser())
 app.use(express.json())
 app.use(users)

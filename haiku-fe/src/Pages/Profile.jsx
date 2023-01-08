@@ -7,7 +7,7 @@ const Profile = () => {
         <>
             <Header />
             <AnimatedPage>
-                
+            
             </AnimatedPage>
             <Footer />
         </>

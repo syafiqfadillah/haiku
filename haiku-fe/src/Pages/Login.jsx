@@ -1,5 +1,7 @@
 import AnimatedLogin from "./AnimatedLogin"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from "axios";
+import swal from "sweetalert";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -9,6 +11,7 @@ import HLogo from '../Assets/Image/H-Logo2.png'
 import SILogo from '../Assets/Image/SU.png'
 
 const Login = () => {
+    const nav = useNavigate()
 
     const showPw = () => {
         const pw = document.querySelector("#pwd");
@@ -18,6 +21,22 @@ const Login = () => {
             pw.type = "password";
         }
     };
+
+    const login = (e) => {
+        e.preventDefault()
+
+        if (e.target[0].value && e.target[1].value) {
+            const form = new FormData()
+            form.append("email", e.target[0].value)
+            form.append("password", e.target[1].value)
+
+            axios.post("http://localhost:3333/login", form)
+            .then(() => swal("Success!", "You're Logged!", "success"))
+            .catch(() => swal("Error!", "Something Wrong!", "error"))
+        } else {
+            swal("Error", "Don't Leave it Blank!", "error")
+        }
+    }
 
     return (
         <>
@@ -36,7 +55,7 @@ const Login = () => {
                     <div className="bgSlide"></div>
                 </div>
                 <div className="rightLogin">
-                    <Form className="loginForm">
+                    <Form className="loginForm" onSubmit={(e) => login(e)}>
                         <Form.Group className="emailLG">
                             <Form.Label className='label'>Email</Form.Label>
                             <Form.Control className="inpEmail" type="email" />
@@ -61,7 +80,7 @@ const Login = () => {
                             </div>
                         </Form.Group>
                         <div className="btnLG">
-                            <Button type='submit'>Sign In</Button>
+                            <Button type='submit' onClick={() => nav("/")}>Sign In</Button>
                             <div className="bottomBtn">
                                 <p>Don't Have Account ? <Link className='suBtn' to="/register"> Sign Up</Link></p>
                                 <p>Forgot Password ?</p>
