@@ -16,7 +16,7 @@ const MyArticles = (props) => {
                 <p>{content}</p>
                 <Link className='articleMore' to={`/article/?id=${props.id}`}>Read More ...</Link>
                 <div className="myArBtn">
-                    <Link className='articleEdit' to='/articleedit'>Edit</Link>
+                    <Link className='articleEdit' to={`/articleedit/?id=${props.id}`}>Edit</Link>
                     <button className='articleDelete'>Delete</button>
                 </div>
             </div>

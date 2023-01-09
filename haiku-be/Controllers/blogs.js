@@ -21,6 +21,20 @@ const postBlog = async (req, res) => {
     }
 }
 
+const updateBlog = async (req, res) => {
+    try {
+        await Blogs.update(req.body, {
+            where : {
+                id : req.params.id
+            }
+        }).then(() => res.status(200).json({
+            message : "Blog Berhasil Diupdate!"
+        }))
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 const getBlogId = async (req, res) => {
     try {
         await Blogs.findAll(
@@ -39,4 +53,4 @@ const getBlogId = async (req, res) => {
     }
 }
 
-module.exports = { getBlogs, postBlog, getBlogId }
+module.exports = { getBlogs, postBlog, updateBlog, getBlogId }
