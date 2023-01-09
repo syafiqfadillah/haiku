@@ -125,6 +125,7 @@
   }
 }
 .maContainer, .hisContainer, .caContainer {
+  width: 100%;
   border: 1px solid var(--pink);
   padding: 20px;
   display: flex;
@@ -144,6 +145,32 @@
 }
 .maContainer .articleMore:hover, .hisContainer .articleMore:hover, .caContainer .articleMore:hover {
   filter: drop-shadow(0 0 5px var(--darkpink));
+}
+.maContainer .myArBtn, .hisContainer .myArBtn, .caContainer .myArBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+}
+.maContainer .myArBtn .articleEdit, .hisContainer .myArBtn .articleEdit, .caContainer .myArBtn .articleEdit {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink);
+  color: var(--white);
+  text-decoration: none;
+}
+.maContainer .myArBtn .articleDelete, .hisContainer .myArBtn .articleDelete, .caContainer .myArBtn .articleDelete {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink);
+  color: var(--white);
+  border: none;
 }
 
 .nav {
@@ -1040,6 +1067,7 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
+  margin-bottom: 50px;
 }
 .profContainer .profBG {
   width: 100%;
@@ -1132,7 +1160,9 @@
 .profContainer .profContent .profAccount .profEdit {
   width: 15%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 .profContainer .profContent .profAccount .profEdit .btnEditProf {
   width: 100%;
