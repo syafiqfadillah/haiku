@@ -80,7 +80,7 @@ const Login = () => {
                             </div>
                         </Form.Group>
                         <div className="btnLG">
-                            <Button type='submit' onClick={() => nav("/")}>Sign In</Button>
+                            <Button type='submit'>Sign In</Button>
                             <div className="bottomBtn">
                                 <p>Don't Have Account ? <Link className='suBtn' to="/register"> Sign Up</Link></p>
                                 <p>Forgot Password ?</p>

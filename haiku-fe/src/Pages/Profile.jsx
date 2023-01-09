@@ -32,6 +32,7 @@ const Profile = () => {
                             </div>
                             <div className="profEdit">
                                 <Link className="btnEditProf" to='/profileedit'><i class="bi bi-pencil-square"></i> Edit Profile</Link>
+                                <Link className="btnEditProf" to='/articlepost'>Post Article</Link>
                             </div>
                         </div>
                         <div className="profArticle">
