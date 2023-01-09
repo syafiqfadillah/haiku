@@ -1,12 +1,20 @@
 import { Link } from 'react-router-dom'
 
-const MyHistory = () => {
+const MyHistory = (props) => {
+    let content
+
+    if (props.content.length >= 100) {
+        content = props.content.slice(0, 150) + "...."
+    } else {
+        content = props.content
+    }
+
     return (
         <>
             <div className="hisContainer">
-                <h1 className='articleTitle'>LEARN JAWA SCRIPT IN 5 MINUTES FULL COURSE EXPERT</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus doloremque consequatur, vitae fuga placeat nemo rerum nam. Quidem, ullam doloremque.</p>
-                <Link className='articleMore' to='/article'>Read More ...</Link>
+                <h1 className='articleTitle'>{props.title}</h1>                
+                <p>{content}</p>
+                <Link className='articleMore' to={`/article/?id=${props.id}`}>Read More ...</Link>
             </div>
         </>
     )

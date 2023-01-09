@@ -6,10 +6,26 @@ import { Link } from 'react-router-dom'
 import MyHistory from "../Components/MyHistory"
 import MyArticles from "../Components/MyArticles"
 
-import apip from '../Assets/Image/pp.jpeg'
 import ScrollTop from "../Components/ScrollTop"
+import { useState, useEffect } from "react"
+import Cookies from "universal-cookie"
+import jwtDecode from "jwt-decode"
+import axios from "axios"
 
 const Profile = () => {
+    const [user, setUser] = useState([])
+    const cookies = new Cookies()
+    const userId = jwtDecode(cookies.get("accessToken")).userId
+
+    useEffect(() => {
+        axios.get(`http://localhost:3333/get-user/${userId}`, 
+        { 
+            headers: {
+                "Authorization" : `Bearer ${cookies.get("accessToken")}`
+            } 
+        }).then(result => setUser(result.data.data[0]))   
+    }, [setUser, userId, cookies])
+
     return (
         <>
             <Header />
@@ -24,10 +40,10 @@ const Profile = () => {
                     <div className="profContent">
                         <div className="profAccount">
                             <div className="profImage">
-                                <img src={apip} alt="Profile Images" />
+                                <img src={`http://localhost:3333/${user.photo}`} alt="Profile Images" />
                             </div>
                             <div className="profUsername">
-                                <h1>Jason Stomach Hurting</h1>
+                                <h1>{user.username}</h1>
                                 <h3>Member</h3>
                             </div>
                             <div className="profEdit">
@@ -39,20 +55,26 @@ const Profile = () => {
                                 <h1 className="tMyArticle">My Articles</h1>
                                 <span className="lineProf"></span>
                                 <div className="pcaContainer">
-                                    <MyArticles />
-                                    <MyArticles />
-                                    <MyArticles />
+                                    {
+                                        user.blogs? user.blogs.map((article, index) => (
+                                            <MyArticles key={index} title={article.title} content={article.content} id={article.id}/>
+                                        )) 
+                                        :
+                                        false
+                                    }
                                 </div>
                             </div>
                             <div className="profHistoryList">
                                 <h1 className="tMyHistory">My History</h1>
                                 <span className="lineProf"></span>
                                 <div className="pchContainer">
-                                    <MyHistory />
-                                    <MyHistory />
-                                    <MyHistory />
-                                    <MyHistory />
-                                    <MyHistory />
+                                    {
+                                        user.history? user.history.map((article, index) => (
+                                            <MyHistory key={index} title={article.index} content={article.content} id={article.id} />
+                                        ))
+                                        :
+                                        false
+                                    }
                                 </div>
                             </div>
                         </div>

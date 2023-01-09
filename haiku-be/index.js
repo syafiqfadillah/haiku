@@ -3,6 +3,7 @@ const express = require("express")
 const dotenv = require("dotenv")
 const cookieParser = require("cookie-parser")
 const db = require("./config/db_config.js")
+const path = require("path")
 
 const refresh_token = require("./routes/refresh-token.js")
 const users = require("./routes/users.js")
@@ -22,6 +23,7 @@ app.use(blogs)
 app.use(history)
 app.use(user_favorite)
 app.use(refresh_token)
+app.use("/Images", express.static(path.join(__dirname, "Images")))
 
 // create tables and relations
 // db.sync({ alter: true })

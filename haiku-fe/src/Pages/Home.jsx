@@ -5,8 +5,16 @@ import AnimatedPage from "./AnimatedPage"
 import ScrollTop from "../Components/ScrollTop"
 import ArticleCard from "../Components/ArticleCard"
 import MyArticles from "../Components/MyArticles"
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 const Home = () => {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:3333/get-blogs").then(result => setData(result.data))
+    }, [setData])
+
     return (
         <>
             <Header />
@@ -14,13 +22,11 @@ const Home = () => {
                 <Carousels />
                 <div className="container-fluid row">
                     <div className="homeL col-md-7">
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
+                        {
+                            data.map((result, index) => (
+                                <ArticleCard key={index} title={result.title} content={result.content} id={result.id}/>
+                            ))
+                        }
                     </div>
                     <div className="homeR col-md-4">
                         <div className="position-sticky" style={{top: "50px"}}>

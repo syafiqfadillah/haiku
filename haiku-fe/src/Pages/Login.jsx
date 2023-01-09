@@ -6,12 +6,14 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Cookies from "universal-cookie"
 
 import HLogo from '../Assets/Image/H-Logo2.png'
 import SILogo from '../Assets/Image/SI.png'
 
 const Login = () => {
     const nav = useNavigate()
+    const cookies = new Cookies()
 
     const showPw = () => {
         const pw = document.querySelector("#pwd");
@@ -31,7 +33,11 @@ const Login = () => {
             form.append("password", e.target[1].value)
 
             axios.post("http://localhost:3333/login", form)
-            .then(() => swal("Success!", "You're Logged!", "success"))
+            .then(result => {
+                cookies.set("accessToken", result.data.accessToken)
+                swal("Success!", "You're Logged!", "success")
+                nav("/")
+            })
             .catch(() => swal("Error!", "Something Wrong!", "error"))
         } else {
             swal("Error", "Don't Leave it Blank!", "error")
@@ -80,7 +86,7 @@ const Login = () => {
                             </div>
                         </Form.Group>
                         <div className="btnLG">
-                            <Button type='submit' onClick={() => nav("/")}>Sign In</Button>
+                            <Button type='submit'>Sign In</Button>
                             <div className="bottomBtn">
                                 <p>Don't Have Account ? <Link className='suBtn' to="/register"> Sign Up</Link></p>
                                 <p>Forgot Password ?</p>
