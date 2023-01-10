@@ -15,10 +15,12 @@ import Swal from "sweetalert2";
 
 const Profile = () => {
     const [user, setUser] = useState([])
+    // const [photo, setPhoto]
+    const search = window.location.search
+    const userId = search.slice(4, search.length)
 
     useEffect(() => {
         const cookies = new Cookies()
-        const userId = jwtDecode(cookies.get("accessToken")).userId
 
         axios.get(`http://localhost:3333/get-user/${userId}`, 
         { 
@@ -45,11 +47,11 @@ const Profile = () => {
                                 <img src={`http://localhost:3333/${user.photo}`} alt="Profile Images" />
                             </div>
                             <div className="profUsername">
-                                <h1>{user.username}</h1>
+                                <h1>{user.name}</h1>
                                 <h3>Member</h3>
                             </div>
                             <div className="profEdit">
-                                <Link className="btnEditProf" to='/profileedit'><i className="bi bi-pencil-square"></i> Edit Profile</Link>
+                                <Link className="btnEditProf" to={`/profileedit/?id=${userId}`}><i className="bi bi-pencil-square"></i> Edit Profile</Link>
                                 <Link className="btnEditProf" to='/articlepost'>Post Article</Link>
                             </div>
                         </div>

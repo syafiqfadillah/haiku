@@ -16,8 +16,10 @@ const Article = () => {
 
     useEffect(() => {
         axios.get(`http://localhost:3333/get-blog/${id.slice(4, id.length)}`).then(result => {
+            console.log(result)
             setArticle(result.data.data[0])
             setUser(result.data.data[0].user)
+            setPhoto(`http://localhost:3333/${result.data.data[0].user.photo}`)
         })
     }, [setArticle, setUser, id])
 
@@ -29,7 +31,7 @@ const Article = () => {
                     <div className="m-auto">
                         <div className="col-md-12">
                             <div className="arProfSec d-flex w-100">
-                                <img src={`http://localhost:3333/${user.photo}`} alt="Article Image Profile" className='rounded-circle' />
+                                <img src={photo} alt="Article Image Profile" className='rounded-circle' />
                                 <div className="contArProf">
                                     <div className="arNameProf">
                                         <div className="arName">

@@ -39,6 +39,23 @@ const getUserPhoto = async (req, res) => {
     })).catch(err => res.status(400))
 }
 
+const updateUser = async (req, res) => {
+    const salt = await bcrypt.genSalt()
+    const encrypt = await bcrypt.hash(req.body.password, salt)
+
+    Users.update({
+        name : req.body.name, 
+        password : encrypt,
+        photo : req.file.path
+    }, {
+        where : {
+            id : req.params.id
+        }
+    }).then(() => res.status(200).json({
+        message : "User Berhasil Diupdate!"
+    })).catch(() => res.status(400))
+}
+
 const getUsers = async (req, res) => {
     try {
         await Users.findAll({
@@ -149,4 +166,4 @@ const logout = async (req, res) => {
     res.sendStatus(200)
 }
 
-module.exports = { getUserPhoto, getUserById, getUsers, postUser, login, logout }
+module.exports = { updateUser, getUserPhoto, getUserById, getUsers, postUser, login, logout }
