@@ -1,4 +1,4 @@
-const { getUserPhoto, getUserById, putUser, postUser, getUsers, login, logout } = require("../controllers/users.js")
+const { updateUser, getUserPhoto, getUserById, putUser, postUser, getUsers, login, logout } = require("../controllers/users.js")
 const verifyToken = require("../middleware/verify-token.js")
 const multer = require("multer")
 const express = require("express")
@@ -21,6 +21,7 @@ router.get("/get-user/:id", verifyToken, getUserById)
 router.post("/post-user", postUser)
 router.get("/get-users", getUsers)
 router.get("/get-photo/:id", getUserPhoto)
+router.put("/update-user/:id", updateUser)
 router.post("/login", login)
 router.put("/logout", logout)
 

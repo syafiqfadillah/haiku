@@ -1,4 +1,4 @@
-const { Blogs, Users } = require("../models/index")
+const { Blogs, Users, History } = require("../models/index")
 
 const getBlogs = async (req, res) => {
     try {
@@ -7,6 +7,24 @@ const getBlogs = async (req, res) => {
     } catch (error) {
         console.error(error)
     }
+}
+
+const deleteBlog = (req, res) => {
+    Blogs.destroy({
+        where : {
+            id : req.params.id
+        }
+    })
+
+    History.destroy({
+        where : {
+            blogId : req.params.id
+        }
+    })
+
+    res.status(200).json({
+        message : "Blog Berhasil Dihapus!"
+    })
 }
 
 const postBlog = async (req, res) => {
@@ -53,4 +71,4 @@ const getBlogId = async (req, res) => {
     }
 }
 
-module.exports = { getBlogs, postBlog, updateBlog, getBlogId }
+module.exports = { deleteBlog, getBlogs, postBlog, updateBlog, getBlogId }

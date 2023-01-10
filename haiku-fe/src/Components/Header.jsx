@@ -1,18 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
 import Tooltip from 'react-bootstrap/esm/Tooltip';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Cookies from "universal-cookie";
+import jwtDecode from 'jwt-decode';
+import axios from "axios"
 
 import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
 
-    const [user, setUser] = useState([])
     const cookies = new Cookies();
     const token = cookies.get("accessToken");
+    const userId = jwtDecode(token).userId
     const nav = useNavigate()
+    const [photo, setPhoto] = useState("")
+
+    useEffect(() => {
+        axios.get(`http://localhost:3333/get-photo/${userId}`)
+        .then(result => setPhoto(result.data.data[0].photo))  
+    }, [setPhoto])
 
     const Logout = () => {
         Swal.fire({
@@ -81,12 +89,12 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     {/* <a className="nav-link disabled">Disabled</a> */}
-                                    <NavLink activeclassname='active' className='NL nav-link' to="/profile"><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
+                                    <NavLink activeclassname='active' className='NL nav-link' to={`/profile/?id=${userId}`}><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
                                 </li>
                             </ul>
                             <div class="d-lg-flex justify-content-lg-end">
                                 <div className="profHead">
-                                    <img className='LGN' src={`http://localhost:3333/${user.photo}`} alt="Profile" />
+                                    <img className='LGN' src={`http://localhost:3333/${photo}`} alt="Profile" />
                                     <div className="dropdownLogout">
                                         <OverlayTrigger placement='bottom' overlay={<Tooltip>Logout</Tooltip>}>
                                             <button className='btnLgot' onClick={Logout}><i className="bi bi-power"></i></button>

@@ -11,7 +11,6 @@ import axios from 'axios'
 const Article = () => {
     const [article, setArticle] = useState([])
     const [user, setUser] = useState([])
-    const [photo, setPhoto] = useState("")
     const id = window.location.search
 
     useEffect(() => {

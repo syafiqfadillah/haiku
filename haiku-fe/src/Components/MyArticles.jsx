@@ -1,4 +1,6 @@
+import axios from 'axios'
 import { Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 const MyArticles = (props) => {
     let content
@@ -9,6 +11,11 @@ const MyArticles = (props) => {
         content = props.content
     }
 
+    const deleteBlog = () => {
+        axios.delete(`http://localhost:3333/del-blog/${props.id}`)
+        .then(() => swal("Success!", "Blog Has Been Deleted!", "success"))
+    }
+
     return (
         <>
             <div className="maContainer">
@@ -17,7 +24,7 @@ const MyArticles = (props) => {
                 <Link className='articleMore' to={`/article/?id=${props.id}`}>Read More ...</Link>
                 <div className="myArBtn">
                     <Link className='articleEdit' to={`/articleedit/?id=${props.id}`}>Edit</Link>
-                    <button className='articleDelete'>Delete</button>
+                    <button className='articleDelete' onClick={() => deleteBlog()}>Delete</button>
                 </div>
             </div>
         </>
