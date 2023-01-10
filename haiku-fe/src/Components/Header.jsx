@@ -1,13 +1,36 @@
 import { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import OverlayTrigger from 'react-bootstrap/esm/OverlayTrigger';
+import Tooltip from 'react-bootstrap/esm/Tooltip';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Cookies from "universal-cookie";
 
 import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
 
+    const [user, setUser] = useState([])
     const cookies = new Cookies();
     const token = cookies.get("accessToken");
+    const nav = useNavigate()
+
+    const Logout = () => {
+        Swal.fire({
+            toast: true,
+            position: "top-right",
+            customClass: {
+                popup: "colored-toast",
+            },
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            icon: "success",
+            title: "Logout successfully"
+        }).then(() => {
+            cookies.remove('accessToken')
+            nav('/login')
+        })
+    }
 
     return (
         <>
@@ -62,7 +85,14 @@ const Header = () => {
                                 </li>
                             </ul>
                             <div class="d-lg-flex justify-content-lg-end">
-                                <img className='LGN' src={`http://localhost:3333/${user.photo}`} alt="Profile" />
+                                <div className="profHead">
+                                    <img className='LGN' src={`http://localhost:3333/${user.photo}`} alt="Profile" />
+                                    <div className="dropdownLogout">
+                                        <OverlayTrigger placement='bottom' overlay={<Tooltip>Logout</Tooltip>}>
+                                            <button className='btnLgot' onClick={Logout}><i className="bi bi-power"></i></button>
+                                        </OverlayTrigger>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
