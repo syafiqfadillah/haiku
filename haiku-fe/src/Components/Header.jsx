@@ -11,11 +11,18 @@ import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
 
-    const cookies = new Cookies();
-    const token = cookies.get("accessToken");
-    const userId = jwtDecode(token).userId
-    const nav = useNavigate()
     const [photo, setPhoto] = useState("")
+    const nav = useNavigate()
+    const cookies = new Cookies();
+    let token
+    let userId
+
+    try {
+        token = cookies.get("accessToken");
+        userId = jwtDecode(token).userId
+    } catch (err) {
+        token = ""
+    }
 
     useEffect(() => {
         axios.get(`http://localhost:3333/get-photo/${userId}`)
