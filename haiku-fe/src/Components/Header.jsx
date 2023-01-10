@@ -1,37 +1,13 @@
 import { useState } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Cookies from "universal-cookie";
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
-import Swal from "sweetalert2";
 
 import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
 
-    const [user, setUser] = useState([])
     const cookies = new Cookies();
     const token = cookies.get("accessToken");
-    const navigate = useNavigate()
-
-    const Logout = () => {
-        Swal.fire({
-                toast: true,
-                position: "top-right",
-                iconColor: "white",
-                customClass: {
-                  popup: "colored-toast",
-                },
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true,
-                icon: "success",
-                title: "Logout success",
-            }).then(() => {
-                cookies.remove('accessToken')
-                navigate("/login")
-            })
-    }
 
     return (
         <>
@@ -85,15 +61,8 @@ const Header = () => {
                                     <NavLink activeclassname='active' className='NL nav-link' to="/profile"><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
                                 </li>
                             </ul>
-                            <div className="d-lg-flex justify-content-lg-end">
-                                <div className="profHead">
-                                    <img className='LGN' src={`http://localhost:3333/${user.photo}`} alt="Profile" />
-                                    <div className="dropdownLogout">
-                                        <OverlayTrigger placement='bottom' overlay={<Tooltip>Logout</Tooltip>}>
-                                            <button className='btnLgot' onClick={Logout}><i className="bi bi-power"></i></button>
-                                        </OverlayTrigger>
-                                    </div>
-                                </div>
+                            <div class="d-lg-flex justify-content-lg-end">
+                                <img className='LGN' src={`http://localhost:3333/${user.photo}`} alt="Profile" />
                             </div>
                         </div>
                     </div>
