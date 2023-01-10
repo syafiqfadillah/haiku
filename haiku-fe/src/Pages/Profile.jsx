@@ -14,19 +14,18 @@ import axios from "axios"
 
 const Profile = () => {
     const [user, setUser] = useState([])
-    const cookies = new Cookies()
-    const userId = jwtDecode(cookies.get("accessToken")).userId
 
     useEffect(() => {
+        const cookies = new Cookies()
+        const userId = jwtDecode(cookies.get("accessToken")).userId
+
         axios.get(`http://localhost:3333/get-user/${userId}`, 
         { 
             headers: {
                 "Authorization" : `Bearer ${cookies.get("accessToken")}`
             } 
         }).then(result => setUser(result.data.data[0]))   
-    }, [setUser, userId, cookies])
-
-    // console.log(user)
+    }, [setUser])
 
     return (
         <>

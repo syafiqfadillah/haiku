@@ -27,6 +27,18 @@ const getUserById = async (req, res) => {
     }
 }
 
+const getUserPhoto = async (req, res) => {
+    Users.findAll({
+        where : {
+            id: req.params.id
+        },
+        attributes : ["photo"]
+    }).then(result => res.status(200).json({
+        message : "Photo Berhasil Diambil!",
+        data : result
+    })).catch(err => res.status(400))
+}
+
 const getUsers = async (req, res) => {
     try {
         await Users.findAll({
@@ -137,4 +149,4 @@ const logout = async (req, res) => {
     res.sendStatus(200)
 }
 
-module.exports = { getUserById, getUsers, postUser, login, logout }
+module.exports = { getUserPhoto, getUserById, getUsers, postUser, login, logout }

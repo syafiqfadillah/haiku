@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Cookies from "universal-cookie";
+import jwtDecode from 'jwt-decode';
+import axios from "axios"
 
 import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
 
-    const [user, setUser] = useState([])
     const cookies = new Cookies();
     const token = cookies.get("accessToken");
+    const [photo, setPhoto] = useState("")
+
+    useEffect(() => {
+        const cookies = new Cookies()
+        const userId = jwtDecode(cookies.get("accessToken")).userId
+
+        axios.get(`http://localhost:3333/get-photo/${userId}`)
+        .then(result => setPhoto(result.data.data[0].photo))  
+    }, [setPhoto])
 
     return (
         <>
@@ -63,7 +73,7 @@ const Header = () => {
                                 </li>
                             </ul>
                             <div class="d-lg-flex justify-content-lg-end">
-                                <img className='LGN' src={`http://localhost:3333/${user.photo}`} alt="Profile" />
+                                <img className='LGN' src={`http://localhost:3333/${photo}`} alt="Profile" />
                             </div>
                         </div>
                     </div>
