@@ -26,6 +26,8 @@ const Profile = () => {
         }).then(result => setUser(result.data.data[0]))   
     }, [setUser, userId, cookies])
 
+    // console.log(user)
+
     return (
         <>
             <Header />
@@ -58,7 +60,7 @@ const Profile = () => {
                                 <div className="pcaContainer">
                                     {
                                         user.blogs? user.blogs.map((article, index) => (
-                                            <MyArticles key={index} title={article.title} content={article.content} id={article.id}/>
+                                            <MyArticles key={index} title={article.title} content={article.content} id={article.id} />
                                         )) 
                                         :
                                         false
@@ -70,8 +72,8 @@ const Profile = () => {
                                 <span className="lineProf"></span>
                                 <div className="pchContainer">
                                     {
-                                        user.history? user.history.map((article, index) => (
-                                            <MyHistory key={index} title={article.index} content={article.content} id={article.id} />
+                                        user.histories? user.histories.map((article, index) => (
+                                            <MyHistory key={index} title={article.blog.title} content={article.blog.content} id={article.blog.id} />
                                         ))
                                         :
                                         false
