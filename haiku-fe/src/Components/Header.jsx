@@ -17,16 +17,16 @@ const Header = () => {
     let token
     let userId
 
-    try {
-        token = cookies.get("accessToken");
-        userId = jwtDecode(token).userId
-    } catch (err) {
-        token = ""
-    }
-
     useEffect(() => {
-        axios.get(`http://localhost:3333/get-photo/${userId}`)
-        .then(result => setPhoto(result.data.data[0].photo))  
+        try {
+            token = cookies.get("accessToken");
+            userId = jwtDecode(token).userId
+
+            axios.get(`http://localhost:3333/get-photo/${userId}`)
+            .then(result => setPhoto(`http://localhost:3333/${result.data.data[0].photo}`))  
+        } catch (err) {
+            token = ""
+        }
     }, [setPhoto])
 
     const Logout = () => {
@@ -101,7 +101,7 @@ const Header = () => {
                             </ul>
                             <div class="d-lg-flex justify-content-lg-end">
                                 <div className="profHead">
-                                    <img className='LGN' src={`http://localhost:3333/${photo}`} alt="Profile" />
+                                    <img className='LGN' src={photo} alt="Profile" />
                                     <div className="dropdownLogout">
                                         <OverlayTrigger placement='bottom' overlay={<Tooltip>Logout</Tooltip>}>
                                             <button className='btnLgot' onClick={Logout}><i className="bi bi-power"></i></button>
