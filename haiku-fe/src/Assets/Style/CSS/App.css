@@ -248,6 +248,17 @@
   border-radius: 10px;
   border: none;
 }
+.nav .cH .LGN {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink);
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 .container-fluid {
   margin: 50px;
