@@ -248,7 +248,33 @@
   border-radius: 10px;
   border: none;
 }
-.nav .cH .LGN {
+.nav .cH .profHead {
+  position: relative;
+  display: inline-block;
+  z-index: 999;
+  transition: all 0.2s;
+}
+.nav .cH .profHead .dropdownLogout {
+  position: absolute;
+  display: none;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+}
+.nav .cH .profHead .dropdownLogout .btnLgot {
+  background-color: var(--darkpurple);
+  color: var(--white);
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  border: 2px solid var(--pink);
+}
+.nav .cH .profHead .LGN {
   width: 50px;
   height: 50px;
   display: flex;
@@ -258,6 +284,10 @@
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: all 0.2s;
+}
+.nav .cH .profHead:hover .dropdownLogout {
+  display: block;
 }
 
 .container-fluid {
@@ -1152,6 +1182,10 @@
   display: flex;
   align-items: baseline;
   gap: 20px;
+}
+.profContainer .profContent .profAccount .profImage {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .profContainer .profContent .profAccount .profImage img {
   height: 250px;

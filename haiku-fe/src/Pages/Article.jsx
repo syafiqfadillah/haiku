@@ -37,10 +37,10 @@ const Article = () => {
                                             <p className='fw-lighter'>Member</p>
                                         </div>
                                         <div className="arProfMedsos">
-                                            <i class="bi bi-twitter"></i>
-                                            <i class="bi bi-instagram"></i>
-                                            <i class="bi bi-pinterest"></i>
-                                            <i class="bi bi-facebook"></i>
+                                            <i className="bi bi-twitter"></i>
+                                            <i className="bi bi-instagram"></i>
+                                            <i className="bi bi-pinterest"></i>
+                                            <i className="bi bi-facebook"></i>
                                         </div>
                                     </div>
                                     <div className="arBtnProf">

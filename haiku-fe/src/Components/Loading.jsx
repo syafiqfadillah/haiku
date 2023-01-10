@@ -2,13 +2,13 @@ const Loading = () => {
     return (
         <>
             <div className="loadingContainer">
-                <div class="loading">
-                    <div class="outer">
+                <div className="loading">
+                    <div className="outer">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
-                    <div class="inner">
+                    <div className="inner">
                         <span></span>
                         <span></span>
                         <span></span>

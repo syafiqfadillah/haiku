@@ -28,7 +28,7 @@ const ScrollTop = () => {
     return (
         <>
             <OverlayTrigger placement="left" overlay={<Tooltip>Scroll Back</Tooltip>}>
-                <button className="ttBtn" onClick={scrollToTop} style={{display: visible ? 'inline' : 'none'}}><i class="bi bi-arrow-up-circle-fill"></i></button>
+                <button className="ttBtn" onClick={scrollToTop} style={{display: visible ? 'inline' : 'none'}}><i className="bi bi-arrow-up-circle-fill"></i></button>
             </OverlayTrigger>
         </>
     )

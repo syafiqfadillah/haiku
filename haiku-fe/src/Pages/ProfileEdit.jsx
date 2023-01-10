@@ -39,10 +39,10 @@ const ProfileEdit = () => {
                                     <label className='eyePW'>
                                         <input type="checkbox" onClick={showPw}/>
                                         <span className='unchecked'>
-                                            <i class="bi bi-dash-lg"></i>
+                                            <i className="bi bi-dash-lg"></i>
                                         </span>
                                         <span className="checked">
-                                            <i class="fa-solid fa-eye"></i>
+                                            <i className="fa-solid fa-eye"></i>
                                         </span>
                                     </label>
                                 </OverlayTrigger>

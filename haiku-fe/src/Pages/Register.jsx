@@ -1,6 +1,6 @@
 import AnimatedLogin from './AnimatedLogin';
 import axios from "axios";
-import swal from "sweetalert"
+import swal from "sweetalert2"
 import { Link, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +11,7 @@ import HLogo from '../Assets/Image/H-Logo2.png';
 import SULogo from '../Assets/Image/SU.png';
 
 const Register = () => {
-    // const nav = useNavigate()
+    const nav = useNavigate()
 
     const showPw = () => {
         const pw = document.querySelector("#pwd");
@@ -34,10 +34,42 @@ const Register = () => {
             form.append("photo", e.target[5].files[0])
 
             axios.post("http://localhost:3333/post-user", form)
-            .then(() => swal("Success!", "Account Was Successfully Created!" ,"success"))
-            .catch(() => swal("Error!", "Something Wrong!", "error"))
+            .then(() => swal.fire({
+                toast: true,
+                position: "top-right",
+                customClass: {
+                  popup: "colored-toast",
+                },
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                icon: "success",
+                title: "Account Created"
+            }).then(() => {
+                nav('/login')
+            }))
+            .catch(() => swal.fire({
+                toast: true,
+                position: "top-right",
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                icon: "error",
+                title: "Something went Wrong"
+            }))
         } else {
-            swal("Error!", "Don't Leave it Blank!", "error")
+            swal.fire({
+                toast: true,
+                position: "top-right",
+                customClass: {
+                  popup: "colored-toast",
+                },
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                icon: "error",
+                title: "Don't leave it Blank"
+            })
         }
     }
 
@@ -79,12 +111,12 @@ const Register = () => {
                                         <label className="eyePW">
                                             <input type="checkbox" id="" onClick={showPw}/>
                                             <span className="unchecked">
-                                                {/* <i class="fa-solid fa-eye-slash"></i> */}
-                                                {/* <i class="fa-solid fa-grip-lines"></i> */}
-                                                <i class="bi bi-dash-lg"></i>
+                                                {/* <i className="fa-solid fa-eye-slash"></i> */}
+                                                {/* <i className="fa-solid fa-grip-lines"></i> */}
+                                                <i className="bi bi-dash-lg"></i>
                                             </span>
                                             <span className="checked">
-                                                <i class="fa-solid fa-eye"></i>
+                                                <i className="fa-solid fa-eye"></i>
                                             </span>
                                         </label>
                                     </OverlayTrigger>
@@ -92,7 +124,7 @@ const Register = () => {
                             </Form.Group>
                             <Form.Group className="imgRG">
                                 <Form.Label className='label'>Upload Image</Form.Label>
-                                <Form.Control type='file' size='sm' />
+                                <Form.Control type='file' size='sm' accept="image/png, image/gif, image/jpeg"/>
                             </Form.Group>
                             <div className="btnRG">
                                 <Button type='submit'>Sign Up</Button>

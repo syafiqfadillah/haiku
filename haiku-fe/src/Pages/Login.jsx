@@ -1,7 +1,7 @@
 import AnimatedLogin from "./AnimatedLogin"
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -35,12 +35,46 @@ const Login = () => {
             axios.post("http://localhost:3333/login", form)
             .then(result => {
                 cookies.set("accessToken", result.data.accessToken)
-                swal("Success!", "You're Logged!", "success")
-                nav("/")
+                Swal.fire({
+                    toast: true,
+                    position: "top-right",
+                    customClass: {
+                      popup: "colored-toast",
+                    },
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    icon: "success",
+                    title: "Login successfully"
+                }).then(() => {
+                    nav("/");
+                });
             })
-            .catch(() => swal("Error!", "Something Wrong!", "error"))
+            .catch(() => Swal.fire({
+                toast: true,
+                position: "top-right",
+                customClass: {
+                  popup: "colored-toast",
+                },
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                icon: "error",
+                title: "Something went wrong"
+            }))
         } else {
-            swal("Error", "Don't Leave it Blank!", "error")
+            Swal.fire({
+                toast: true,
+                position: "top-right",
+                customClass: {
+                  popup: "colored-toast",
+                },
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                icon: "error",
+                title: "Don't leave it Blank"
+            })
         }
     }
 
@@ -74,12 +108,12 @@ const Login = () => {
                                     <label className="eyePW">
                                         <input type="checkbox" id="" onClick={showPw}/>
                                         <span className="unchecked">
-                                            {/* <i class="fa-solid fa-eye-slash"></i> */}
-                                            {/* <i class="fa-solid fa-grip-lines"></i> */}
-                                            <i class="bi bi-dash-lg"></i>
+                                            {/* <i className="fa-solid fa-eye-slash"></i> */}
+                                            {/* <i className="fa-solid fa-grip-lines"></i> */}
+                                            <i className="bi bi-dash-lg"></i>
                                         </span>
                                         <span className="checked">
-                                            <i class="fa-solid fa-eye"></i>
+                                            <i className="fa-solid fa-eye"></i>
                                         </span>
                                     </label>
                                 </OverlayTrigger>

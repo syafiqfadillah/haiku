@@ -21,7 +21,7 @@ const Explore = () => {
                     <div className="eSearchSec">
                         <form className="eSearch">
                             <input className="inSearch" type="text" placeholder="Search In Titles"/>
-                            <button className="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button className="btnSearch"><i className="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
                     <ExploreCard />

@@ -2,7 +2,7 @@ import Header from "../Components/Header"
 import Footer from "../Components/Footer"
 import AnimatedPage from "./AnimatedPage"
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import MyHistory from "../Components/MyHistory"
 import MyArticles from "../Components/MyArticles"
 
@@ -11,6 +11,7 @@ import { useState, useEffect } from "react"
 import Cookies from "universal-cookie"
 import jwtDecode from "jwt-decode"
 import axios from "axios"
+import Swal from "sweetalert2";
 
 const Profile = () => {
     const [user, setUser] = useState([])
@@ -49,7 +50,7 @@ const Profile = () => {
                                 <h3>Member</h3>
                             </div>
                             <div className="profEdit">
-                                <Link className="btnEditProf" to='/profileedit'><i class="bi bi-pencil-square"></i> Edit Profile</Link>
+                                <Link className="btnEditProf" to='/profileedit'><i className="bi bi-pencil-square"></i> Edit Profile</Link>
                                 <Link className="btnEditProf" to='/articlepost'>Post Article</Link>
                             </div>
                         </div>

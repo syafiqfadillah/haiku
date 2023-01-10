@@ -16,19 +16,19 @@ const Footer = () => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, et minus ex aliquid voluptatem quam aspernatur accusamus corrupti nobis officiis.</p>
                         </div>
                         <div className="fSosmed">
-                            <i class="fa-brands fa-square-instagram"></i>
-                            <i class="fa-brands fa-square-facebook"></i>
-                            <i class="fa-brands fa-square-twitter"></i>
-                            <i class="fa-brands fa-square-pinterest"></i>
+                            <i className="fa-brands fa-square-instagram"></i>
+                            <i className="fa-brands fa-square-facebook"></i>
+                            <i className="fa-brands fa-square-twitter"></i>
+                            <i className="fa-brands fa-square-pinterest"></i>
                         </div>
                     </div>
                     <div className="fMid">
                         <div className="fPhone">
-                            <i class="fa-solid fa-phone"></i>
+                            <i className="fa-solid fa-phone"></i>
                             <p>+62 858 - 1388 - 6287</p>
                         </div>
                         <div className="fMaps">
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i className="fa-solid fa-location-dot"></i>
                             <span>
                                 <p>Jalan Kebagusan 2 No. 92 16273</p>
                                 <p>Ragunan, Jakarta Selatan</p>
