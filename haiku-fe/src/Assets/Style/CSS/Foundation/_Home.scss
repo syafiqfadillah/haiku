@@ -1,3 +1,34 @@
+.citem {
+    position: relative;
+
+    .crsl {
+        position: relative;
+        height: 500px;
+        background: linear-gradient(90.22deg, #DA4167 0%, #832161 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 200px;
+        color: var(--white);
+        
+        h1 {
+            width: 700px;
+            font-size: 3rem;
+        }
+
+        .logoci {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            font-size: 50rem;
+            bottom: 50%;
+            right: 50%;
+            rotate: -45deg;
+            opacity: .2;
+        }
+    }
+}
+
 .container-fluid {
     margin: 50px;
 
