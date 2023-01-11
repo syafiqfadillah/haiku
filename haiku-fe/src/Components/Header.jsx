@@ -10,24 +10,23 @@ import axios from "axios"
 import IMG from '../Assets/Image/H-Logo.png'
 
 const Header = () => {
-
     const [photo, setPhoto] = useState("")
     const nav = useNavigate()
     const cookies = new Cookies();
     let token
-    let userId
+    let path
 
-    useEffect(() => {
-        try {
-            token = cookies.get("accessToken");
-            userId = jwtDecode(token).userId
+    try {
+        token = cookies.get("accessToken")
+        let userId = jwtDecode(token).userId
+        path = `/profile/?id=${userId}`
 
-            axios.get(`http://localhost:3333/get-photo/${userId}`)
-            .then(result => setPhoto(`http://localhost:3333/${result.data.data[0].photo}`))  
-        } catch (err) {
-            token = ""
-        }
-    }, [setPhoto])
+        axios.get(`http://localhost:3333/get-photo/${userId}`)
+        .then(result => setPhoto(`http://localhost:3333/${result.data.data[0].photo}`))
+    } catch (err) {
+        token = ""
+        path = ""
+    }
 
     const Logout = () => {
         Swal.fire({
@@ -96,7 +95,7 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     {/* <a className="nav-link disabled">Disabled</a> */}
-                                    <NavLink activeclassname='active' className='NL nav-link' to={`/profile/?id=${userId}`}><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
+                                    <NavLink activeclassname='active' className='NL nav-link' to={path}><span className='toBtn'>Profile</span><span className="toLine"></span></NavLink>
                                 </li>
                             </ul>
                             <div class="d-lg-flex justify-content-lg-end">
